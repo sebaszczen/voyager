@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Clients</title>
+</head>
+<body>
+<table>
+    <tr th:each="tr : ${trips}">
+        <td th:text="${tr.id}"></td>
+        <td th:text="${tr.place}"></td>
+        <td th:text="${tr.cost}"></td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Students</title>
+</head>
+<body>
+<datalist id="clients">
+    <option th:each="cl : ${clients}" th:value="${cl.id}" th:label="${cl.name}"></option>
+</datalist>
+
+<form action="#" th:action="@{/trip/addTrip}" th:object="${trip}" method="POST">
+    <input list="clients" name="clientID"/>
+
+    <table>
+        <tr>
+            <td>Place:</td>
+            <td><input type="text" th:field="*{place}"/></td>
+            <td th:if="${#fields.hasErrors('place')}" th:errors="*{place}"></td>
+        </tr>
+        <tr>
+            <td>Cost:</td>
+            <td><input type="text" th:field="*{cost}"/></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Zapisz</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
